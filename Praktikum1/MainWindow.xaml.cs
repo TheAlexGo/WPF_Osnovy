@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,6 +16,19 @@ using System.Windows.Shapes;
 
 namespace Praktikum1
 {
+    public class AnswerGenerator
+    {
+        static public string GetRandomAnswer()
+        {
+            string[] variableAnswer = new string[] { 
+                "Так точно", "Маловероятно", "Возможно", "Очень сомнительно", "Точно нет" 
+            };
+            Random rnd = new Random();
+            int num = rnd.Next(0, variableAnswer.Length);
+            return variableAnswer[num];
+        }
+    }
+
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
@@ -25,15 +39,20 @@ namespace Praktikum1
             InitializeComponent();
         }
 
-        // Когда курсор попадает в область прямоугольника, заполняем прямоугольник желтым цветом.
-        private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
+        // Обработчик события нажатия кнопки
+        private void Answer_Click(object sender, RoutedEventArgs e)
         {
-            (sender as Rectangle).Fill = Brushes.Yellow;
+            // Ставим курсор ожидания.
+            this.Cursor = Cursors.Wait;
+            // Делаем задержку, для создания эффекта того, что программа задумалась.
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            // Берем случайный ответ.
+            txtAnswer.Text = AnswerGenerator.GetRandomAnswer();
+            // Восстанавливаем прежнее состояние курсора.
+            this.Cursor = null;
         }
-        // При выходе курсора за пределы прямоугольника устанавливаем зеленый цвет.
-        private void Rectangle_MouseLeave(object sender, MouseEventArgs e)
+        private void txtQuestion_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (sender as Rectangle).Fill = Brushes.Green;
         }
 
     }

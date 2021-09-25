@@ -24,24 +24,5 @@ namespace Praktikum1
         {
             InitializeComponent();
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            MessageBox.Show(textBox.Text);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxName.Text == string.Empty)
-            {
-                MessageBox.Show("Вы не ввели свое имя!");
-            }
-            else
-            {
-                MessageBox.Show("Привет, " + TextBoxName.Text);
-            }
-
-        }
     }
 }

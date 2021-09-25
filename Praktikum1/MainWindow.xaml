@@ -5,23 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum1"
         mc:Ignorable="d"
-        Title="Главное окно" Height="350" Width="500">
+        Title="Установка свойств в разметке" Height="350" Width="500">
     <Grid>
-        <Label Target="{Binding ElementName=TextBoxName}" Margin="170,10,176.6,277.8" Content="Введите своё имя" FontSize="16" Background="#00000000"/>
-        <TextBox
-            TextChanged="TextBox_TextChanged"
-            TextWrapping="Wrap"
-            AcceptsReturn="True"
-            AcceptsTab="True"
-            x:Name="TextBoxName"
-            Margin="170,48,176.6,244.8" 
-        />
-        <Button
-            Content="Ок"
-            HorizontalAlignment="Left"
-            Margin="170,104,0,0"
-            VerticalAlignment="Top"
-            Width="147" Click="Button_Click"
-        />
+
     </Grid>
 </Window>

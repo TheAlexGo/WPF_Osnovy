@@ -16,19 +16,6 @@ using System.Windows.Shapes;
 
 namespace Praktikum1
 {
-    public class AnswerGenerator
-    {
-        static public string GetRandomAnswer()
-        {
-            string[] variableAnswer = new string[] { 
-                "Так точно", "Маловероятно", "Возможно", "Очень сомнительно", "Точно нет" 
-            };
-            Random rnd = new Random();
-            int num = rnd.Next(0, variableAnswer.Length);
-            return variableAnswer[num];
-        }
-    }
-
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
@@ -38,22 +25,48 @@ namespace Praktikum1
         {
             InitializeComponent();
         }
-
-        // Обработчик события нажатия кнопки
-        private void Answer_Click(object sender, RoutedEventArgs e)
+        int firstNumber = 0;
+        int secondNumber = 0;
+        int thirdNumber = 0;
+        private int getNumber()
         {
-            // Ставим курсор ожидания.
+            string[] stringNumbers = TextBoxNumbers.Text.Split(' ');
+            try
+            {
+                firstNumber = int.Parse(stringNumbers[0]);
+                secondNumber = int.Parse(stringNumbers[1]);
+                thirdNumber = int.Parse(stringNumbers[2]);
+            }
+            catch
+            {
+                MessageBox.Show("Введены не все числа");
+                return 0;
+            }
+            return 1;
+        }
+
+        private int getSum()
+        {
+            return firstNumber + secondNumber + thirdNumber;
+        }
+
+        private int getMulti()
+        {
+            return firstNumber * secondNumber * thirdNumber;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
             this.Cursor = Cursors.Wait;
-            // Делаем задержку, для создания эффекта того, что программа задумалась.
             Thread.Sleep(TimeSpan.FromSeconds(1));
-            // Берем случайный ответ.
-            txtAnswer.Text = AnswerGenerator.GetRandomAnswer();
-            // Восстанавливаем прежнее состояние курсора.
+            if (getNumber() == 1)
+            {
+                GridResult.Visibility = Visibility.Visible;
+                LabelResult.Content = $"сумма: {getSum()}";
+                await Task.Delay(2000);
+                LabelResult.Content = $"произведение: {getMulti()}";
+            }
             this.Cursor = null;
         }
-        private void txtQuestion_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
     }
 }

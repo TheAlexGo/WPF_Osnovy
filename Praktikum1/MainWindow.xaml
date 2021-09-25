@@ -5,65 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum1"
         mc:Ignorable="d"
-        Title="Магический 8 ball" Height="350" Width="500">
+        Title="Сумма и произведение 3-х чисел" Height="350" Width="500">
     <!--
         Объект Grid Определяет гибкую область сетки, состоящую из столбцов и строк.        
     -->
     <Grid>
-        <!--
-            RowDefinitions - Коллекция которая определяет
-            строки для отображения - RowDefinition.
-        -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100*" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="100*" />
-        </Grid.RowDefinitions>
+        <Label
+            Content="Введите числа через пробел:"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            VerticalAlignment="Top"
+        />
+        <TextBox
+            HorizontalAlignment="Left"
+            Height="23"
+            Margin="10,41,0,0"
+            TextWrapping="Wrap"
+            Text=""
+            VerticalAlignment="Top"
+            Width="171"
+            x:Name="TextBoxNumbers"
+        />
+        <Button
+            Content="Рассчитать"
+            HorizontalAlignment="Left"
+            Margin="228,41,0,0"
+            VerticalAlignment="Top"
+            Width="84"
+            Height="23" Click="Button_Click"
+        />
+        <Grid Name="GridResult" HorizontalAlignment="Left" Height="60" Margin="10,78,0,0" VerticalAlignment="Top" Width="302" Visibility="Hidden">
+            <Label Content="Результат:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <Label Name="LabelResult" HorizontalAlignment="Left" Margin="81,10,0,0" VerticalAlignment="Top" Width="197" Height="24"/>
+        </Grid>
 
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-
-                <!-- Коллекция свойств GradientStop -->
-                <LinearGradientBrush.GradientStops>
-                    <GradientStop Offset="1" Color="#FFEEEEEE" />
-                    <GradientStop Offset="0.881" Color="#FF302F2F" />
-                </LinearGradientBrush.GradientStops>
-            </LinearGradientBrush>
-        </Grid.Background>
-
-        <TextBox Name="txtQuestion" 
-                 HorizontalAlignment="Stretch" 
-                 VerticalAlignment="Stretch" 
-                 Margin="10" 
-                 TextWrapping="Wrap" 
-                 FontFamily="Verdana" 
-                 FontSize="20" 
-                 Grid.Row="0" 
-                 Foreground="#FF646464" 
-                 Text="[Введите свой вопрос.]" TextChanged="txtQuestion_TextChanged" />
-        <!-- 
-            IsDefault - Получает или задает значение, указывающее, является ли Button кнопкой по умолчанию.
-        -->
-        <Button HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                Margin="10,0,10,0"
-                Padding="5"
-                Grid.Row="1" 
-                Content="Ответ на вопрос" 
-                Click="Answer_Click" 
-                IsDefault="True" />
-        <TextBox Name="txtAnswer" 
-                 HorizontalAlignment="Stretch" 
-                 VerticalAlignment="Stretch" 
-                 Margin="10" 
-                 TextWrapping="Wrap" 
-                 FontFamily="Verdana" 
-                 FontSize="20" 
-                 IsReadOnly="True"
-                 Grid.Row="2" 
-                 Foreground="#FF009BFF" 
-                 Text="[Ответ появится здесь.]" 
-            />
     </Grid>
 
 

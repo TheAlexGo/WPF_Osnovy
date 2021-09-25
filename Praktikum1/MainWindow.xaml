@@ -7,14 +7,13 @@
         mc:Ignorable="d"
         Title="Главное окно" Height="350" Width="500">
     <Grid>
-        <Label Target="{Binding ElementName=TextBoxName}" Margin="170,10,176.6,277.8" Content="Введите своё имя" FontSize="16" Background="#00000000"/>
+        <Label Target="{Binding ElementName=TextBoxName}" Margin="170,10,176.6,272.8" Content="Введите своё имя" FontSize="16" Background="#00000000"/>
         <TextBox
-            TextChanged="TextBox_TextChanged"
             TextWrapping="Wrap"
             AcceptsReturn="True"
             AcceptsTab="True"
             x:Name="TextBoxName"
-            Margin="170,48,176.6,244.8" 
+            Margin="170,53,176.6,239.8" 
         />
         <Button
             Content="Ок"

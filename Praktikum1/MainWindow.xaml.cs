@@ -24,13 +24,6 @@ namespace Praktikum1
         {
             InitializeComponent();
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-            MessageBox.Show(textBox.Text);
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxName.Text == string.Empty)

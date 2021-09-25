@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum1"
         mc:Ignorable="d"
-        Title="Установка свойств в разметке" Height="350" Width="500">
+        Title="Установка свойств в разметке. События мыши" Height="350" Width="500">
     <Grid>
-
+        <Rectangle
+            Fill="Green"
+            Height="100"
+            Margin="10,115,9.6,105.8"
+            MouseEnter="Rectangle_MouseEnter" 
+            MouseLeave="Rectangle_MouseLeave"
+        />
+        <Rectangle
+            Fill="Green"
+            Height="100"
+            Margin="10,10,9.6,210.8"
+            MouseEnter="Rectangle_MouseEnter" 
+            MouseLeave="Rectangle_MouseLeave"
+        />
     </Grid>
+
 </Window>

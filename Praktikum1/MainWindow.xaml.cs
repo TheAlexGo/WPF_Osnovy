@@ -25,46 +25,30 @@ namespace Praktikum1
         {
             InitializeComponent();
         }
-        int firstNumber = 0;
-        int secondNumber = 0;
-        int thirdNumber = 0;
-        private int getNumber()
+
+        private decimal getKb()
         {
-            string[] stringNumbers = TextBoxNumbers.Text.Split(' ');
             try
             {
-                firstNumber = int.Parse(stringNumbers[0]);
-                secondNumber = int.Parse(stringNumbers[1]);
-                thirdNumber = int.Parse(stringNumbers[2]);
+                decimal result = decimal.Parse(TextBoxBytes.Text) / 1024;
+                return Math.Round(result, 2);
             }
             catch
             {
-                MessageBox.Show("Введены не все числа");
-                return 0;
+                MessageBox.Show("Не правильно введено число!");
+                return -1;
             }
-            return 1;
         }
 
-        private int getSum()
-        {
-            return firstNumber + secondNumber + thirdNumber;
-        }
-
-        private int getMulti()
-        {
-            return firstNumber * secondNumber * thirdNumber;
-        }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Cursor = Cursors.Wait;
             Thread.Sleep(TimeSpan.FromSeconds(1));
-            if (getNumber() == 1)
+            decimal result = getKb();
+            if (result != -1)
             {
                 GridResult.Visibility = Visibility.Visible;
-                LabelResult.Content = $"сумма: {getSum()}";
-                await Task.Delay(2000);
-                LabelResult.Content = $"произведение: {getMulti()}";
+                LabelResult.Content = $"{TextBoxBytes.Text} байт = {result} Кб";
             }
             this.Cursor = null;
         }

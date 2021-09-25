@@ -11,7 +11,7 @@
     -->
     <Grid>
         <Label
-            Content="Введите числа через пробел:"
+            Content="Размер файла в байтах:"
             HorizontalAlignment="Left"
             Margin="10,10,0,0"
             VerticalAlignment="Top"
@@ -24,7 +24,7 @@
             Text=""
             VerticalAlignment="Top"
             Width="171"
-            x:Name="TextBoxNumbers"
+            x:Name="TextBoxBytes"
         />
         <Button
             Content="Рассчитать"
